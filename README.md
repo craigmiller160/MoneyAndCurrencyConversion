@@ -1,0 +1,2 @@
+# MoneyAndCurrencyConversion
+A library to assist in the use of Money in programs. Specifically, it provides a Money object that links the raw value to a specific type of currency.The included utility class, CurrencyConverter, handles conversions of 23 included currencies. As a result, operations involving a Money objects of multiple currency types are automatically converted into the type of the base amount of Money, thus maintaining financial consistency when dealing with multiple currencies.
