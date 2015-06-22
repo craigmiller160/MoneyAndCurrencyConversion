@@ -14,7 +14,7 @@ import java.text.DecimalFormat;
  * @author Craig
  * @version 2.0
  */
-public class Money implements Comparable<Money>, Serializable{
+public final class Money implements Comparable<Money>, Serializable{
 
 	/**
 	 * serialVersionUID - do not change except to break backwards

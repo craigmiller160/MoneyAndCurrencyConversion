@@ -24,7 +24,7 @@ import org.joda.time.Days;
  * @author Craig
  * @version 2.0
  */
-public class CurrencyConverter implements Serializable{
+public final class CurrencyConverter implements Serializable{
 
 	/**
 	 * The SerialVersionUID for this class.<br>
