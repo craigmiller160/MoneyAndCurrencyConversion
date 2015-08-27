@@ -34,8 +34,6 @@ public final class Money implements Comparable<Money>, Serializable{
 	 */
 	private CurrencyType currency;
 	
-	//private static FinanceLogger fLogger = FinanceLogger.getInstance();
-	
 	/**
 	 * Create a new <tt>Money</tt> object with a value of 0
 	 * but with the <tt>CurrencyType</tt> set.
@@ -111,7 +109,6 @@ public final class Money implements Comparable<Money>, Serializable{
 	 * @param m		the <tt>Money</tt> object being added
 	 * 				to this one.
 	 * @return		the new value of the <tt>Money</tt> object 
-	 * @throws	InvalidCurrencyException
 	 */
 	public Money add(Money m){
 		CurrencyType type = m.getType();
@@ -130,7 +127,6 @@ public final class Money implements Comparable<Money>, Serializable{
 	 * @param m		the <tt>Money</tt> object being subracted
 	 * 				from this one.
 	 * @return		the new value of the <tt>Money</tt> object
-	 * @throws	InvalidCurrencyException
 	 */
 	public Money subtract(Money m){
 		CurrencyType type = m.getType();
