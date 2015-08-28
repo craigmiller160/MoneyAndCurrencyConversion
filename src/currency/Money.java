@@ -7,7 +7,7 @@ import java.text.DecimalFormat;
 
 /**
  * Class <tt>Money</tt> represents an amount of money. It contains a
- * <tt>BigDecimal</tt> value for the amount, and a <tt>Currencies</tt>
+ * <tt>BigDecimal</tt> value for the amount, and a <tt>CurrencyType</tt>
  * constant for the type of currency. 
  * 
  * 
