@@ -1,1 +1,9 @@
 /bin/
+
+# GitHub
+.git/
+
+# Eclipse stuff
+*.classpath
+*.project
+.settings/
