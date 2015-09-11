@@ -1,0 +1,13 @@
+/bin/
+
+# GitHub
+.git/
+
+# Eclipse stuff
+*.classpath
+*.project
+.settings/
+
+# Maven
+src/test/
+target/
