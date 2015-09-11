@@ -1,5 +1,6 @@
 package io.craigmiller160.currency;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -109,8 +110,9 @@ public final class Money implements Comparable<Money>, Serializable{
 	 * @param m		the <tt>Money</tt> object being added
 	 * 				to this one.
 	 * @return		the new value of the <tt>Money</tt> object 
+	 * @throws IOException if the <tt>CurrencyConverter</tt> can't get conversion rates.
 	 */
-	public Money add(Money m){
+	public Money add(Money m) throws IOException{
 		CurrencyType type = m.getType();
 		
 		if(!type.equals(currency)){
@@ -127,8 +129,9 @@ public final class Money implements Comparable<Money>, Serializable{
 	 * @param m		the <tt>Money</tt> object being subracted
 	 * 				from this one.
 	 * @return		the new value of the <tt>Money</tt> object
+	 * @throws IOException if the <tt>CurrencyConverter</tt> can't get conversion rates.
 	 */
-	public Money subtract(Money m){
+	public Money subtract(Money m) throws IOException{
 		CurrencyType type = m.getType();
 		if(!type.equals(currency)){
 			m = CurrencyConverter.convertTo(m, currency);
@@ -202,12 +205,19 @@ public final class Money implements Comparable<Money>, Serializable{
 	 * 
 	 * @param m		The <tt>Money</tt> object to compare to
 	 * @return 		The result of the comparison between the two objects
+	 * @throws IllegalStateException if the <tt>CurrencyConverter</tt> is unable to get
+	 * up-to-date conversion data, it is in an illegal state for this operation.
 	 */
 	@Override
 	public int compareTo(Money m){
 		CurrencyType type = m.getType();
 		if(type != currency){
-			m = CurrencyConverter.convertTo(m, currency);
+			try{
+				m = CurrencyConverter.convertTo(m, currency);
+			}
+			catch(IOException ex){
+				throw new IllegalStateException("CurrencyConverter unable to get conversion rate", ex);
+			}
 		}
 		BigDecimal bd = m.getBigDecimalAmount();
 		
